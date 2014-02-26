@@ -8,7 +8,7 @@ using WumpusHunt.Utils;
 
 namespace WumpusHunt.Actions
 {
-    class FindWumpusAction : IAction
+    public class FindWumpusAction : IAction
     {
         public string Name { get { return "findwumpus"; } }
         public ActionResult Execute(GameState state)

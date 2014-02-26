@@ -10,7 +10,7 @@ using WumpusHunt.Utils.Hooks;
 
 namespace WumpusHunt.Utils
 {
-    class RandomGenerator : IMapGenerator
+    public class RandomGenerator : IMapGenerator
     {
         private readonly Random _random;
         private List<ICellFactory> _factories;

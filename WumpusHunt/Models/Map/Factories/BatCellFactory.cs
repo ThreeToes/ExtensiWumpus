@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WumpusHunt.Models.Map.Factories
 {
-    class BatCellFactory : ICellFactory
+    public class BatCellFactory : ICellFactory
     {
         public BatCellFactory()
         {

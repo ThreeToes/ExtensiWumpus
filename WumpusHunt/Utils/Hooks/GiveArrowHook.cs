@@ -7,7 +7,7 @@ using WumpusHunt.Models.Items;
 
 namespace WumpusHunt.Utils.Hooks
 {
-    class GiveArrowHook : IInitialiseHook
+    public class GiveArrowHook : IInitialiseHook
     {
         private const int arrows = 3;
         public void GameInitialised(GameState state)

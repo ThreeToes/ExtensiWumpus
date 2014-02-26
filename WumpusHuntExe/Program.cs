@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WumpusHunt;
 using WumpusHunt.Actions;
 using WumpusHunt.Models;
 using WumpusHunt.Models.Agent;
-using WumpusHunt.Models.Items;
-using WumpusHunt.Models.Map;
 using WumpusHunt.Models.Map.Factories;
 using WumpusHunt.Utils;
 using WumpusHunt.Utils.Hooks;
 
-namespace WumpusHunt
+namespace WumpusHuntExe
 {
     class Program
     {
@@ -38,7 +37,7 @@ namespace WumpusHunt
             {
                 Console.WriteLine(game.CurrentPerception);
                 Console.WriteLine(Strings.EnterAction);
-                
+
                 var result = game.Step();
                 Console.WriteLine(result.Message);
                 Console.WriteLine();
@@ -46,7 +45,7 @@ namespace WumpusHunt
                     break;
             }
             Console.WriteLine(Strings.GameOver);
-            Console.WriteLine("Score: {0}",game.CurrentState.ActiveAgent.Score);
+            Console.WriteLine("Score: {0}", game.CurrentState.ActiveAgent.Score);
             Console.ReadLine();
         }
     }

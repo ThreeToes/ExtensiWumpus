@@ -9,7 +9,7 @@ using WumpusHunt.Models.Map;
 
 namespace WumpusHunt.Actions
 {
-    class GrabAction : IAction
+    public class GrabAction : IAction
     {
         public string Name { get { return "grab"; } }
         public ActionResult Execute(GameState state)

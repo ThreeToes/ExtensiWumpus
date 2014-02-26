@@ -7,7 +7,7 @@ using WumpusHunt.Models.Map;
 
 namespace WumpusHunt.Utils.Hooks
 {
-    class GoldAddHook : IMapGeneratedHook
+    public class GoldAddHook : IMapGeneratedHook
     {
         private const int GoldAvailable = 5;
 

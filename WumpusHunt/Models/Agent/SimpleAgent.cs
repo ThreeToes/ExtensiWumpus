@@ -5,7 +5,7 @@ using WumpusHunt.Models.Items;
 
 namespace WumpusHunt.Models.Agent
 {
-    class SimpleAgent : IAgent
+    public class SimpleAgent : IAgent
     {
         private readonly List<IItem> _inventory;
         private int _score;

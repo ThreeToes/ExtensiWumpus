@@ -7,7 +7,7 @@ using WumpusHunt.Utils;
 
 namespace WumpusHunt.Actions
 {
-    class TurnLeftAction : IAction
+    public class TurnLeftAction : IAction
     {
         public string Name { get { return "left"; } }
         public ActionResult Execute(GameState state)

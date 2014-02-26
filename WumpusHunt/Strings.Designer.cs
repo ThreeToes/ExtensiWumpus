@@ -22,7 +22,7 @@ namespace WumpusHunt {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -99,7 +99,7 @@ namespace WumpusHunt {
         /// <summary>
         ///   Looks up a localized string similar to Please enter the action to take.
         /// </summary>
-        internal static string EnterAction {
+        public static string EnterAction {
             get {
                 return ResourceManager.GetString("EnterAction", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace WumpusHunt {
         /// <summary>
         ///   Looks up a localized string similar to Game over.
         /// </summary>
-        internal static string GameOver {
+        public static string GameOver {
             get {
                 return ResourceManager.GetString("GameOver", resourceCulture);
             }

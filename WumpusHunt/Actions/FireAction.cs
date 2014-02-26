@@ -7,7 +7,7 @@ using WumpusHunt.Utils;
 
 namespace WumpusHunt.Actions
 {
-    internal class FireAction : IAction
+    public class FireAction : IAction
     {
         public static int ArrowRange = 3;
         public static int ScoreValue = 1000;
