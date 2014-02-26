@@ -77,7 +77,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Hooks\GiveArrowHook.cs" />
     <Compile Include="Utils\Hooks\GoldAddHook.cs" />
+    <Compile Include="Utils\Hooks\IActionHook.cs" />
+    <Compile Include="Utils\Hooks\IInitialiseHook.cs" />
     <Compile Include="Utils\Hooks\IMapGeneratedHook.cs" />
     <Compile Include="Utils\IMapGenerator.cs" />
     <Compile Include="Utils\MapCellUtils.cs" />
