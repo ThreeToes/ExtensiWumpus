@@ -56,6 +56,7 @@ namespace WumpusHunt.Models
             {
                 agent.RemoveItem(item);
             }
+            agent.ResetScore();
             _state = new GameState();
             _state.ActiveAgent = agent;
             _state.CurrentCell = _generator.GenerateMap();

@@ -9,12 +9,46 @@ using WumpusHunt.Models.Agent;
 using WumpusHunt.Models.Map.Factories;
 using WumpusHunt.Utils;
 using WumpusHunt.Utils.Hooks;
+using WumpusHuntExe.Menu;
 
 namespace WumpusHuntExe
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            var game = GetGame();
+            var menus = new List<IMenuEntry>()
+                            {
+                                new NewGameMenuEntry(),
+                                new QuitEntry()
+                            };
+            while(true)
+            {
+                var weightedMenus = menus.OrderBy(x => x.Weight).ToList();
+                var menuEntryNum = 1;
+                foreach (var menuEntry in menus)
+                {
+                    Console.WriteLine("{0}) {1}", menuEntryNum, menuEntry.Title);
+                    menuEntryNum++;
+                }
+                var choice = Console.ReadLine();
+                int num;
+                if(int.TryParse(choice, out num))
+                {
+                    var finalChoice = num - 1;
+                    if(num <= 0 || num > weightedMenus.Count)
+                    {
+                        continue;
+                    }
+                    weightedMenus[finalChoice].Execute(game);
+                }
+            }
+        }
+
+
+
+        private static Game GetGame()
         {
             IAgent agent = new SimpleAgent();
             var factories = new List<ICellFactory>();
@@ -32,21 +66,7 @@ namespace WumpusHuntExe
             generator.AddMapGeneratedHook(new GoldAddHook());
             var game = new Game(generator, actions, agent);
             game.RegisterInitialisationHook(new GiveArrowHook());
-            game.Reinitialise();
-            while (true)
-            {
-                Console.WriteLine(game.CurrentPerception);
-                Console.WriteLine(Strings.EnterAction);
-
-                var result = game.Step();
-                Console.WriteLine(result.Message);
-                Console.WriteLine();
-                if (result.GameOver)
-                    break;
-            }
-            Console.WriteLine(Strings.GameOver);
-            Console.WriteLine("Score: {0}", game.CurrentState.ActiveAgent.Score);
-            Console.ReadLine();
+            return game;
         }
     }
 }

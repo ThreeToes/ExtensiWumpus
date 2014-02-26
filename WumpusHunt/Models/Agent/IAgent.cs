@@ -12,5 +12,6 @@ namespace WumpusHunt.Models.Agent
         IEnumerable<IItem> Inventory { get; }
         string GetAction();
         void AddScore(int toAdd);
+        void ResetScore();
     }
 }

@@ -46,5 +46,10 @@ namespace WumpusHunt.Models.Agent
         {
             _score += toAdd;
         }
+
+        public void ResetScore()
+        {
+            _score = 0;
+        }
     }
 }
