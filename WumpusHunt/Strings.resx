@@ -105,7 +105,7 @@
     <value xml:space="preserve">You bump into a wall</value>
   </data>
   <data name="Growling">
-    <value xml:space="preserve">You hear growling</value>
+    <value xml:space="preserve">You smell a wumpus</value>
   </data>
   <data name="WumpusDeath">
     <value xml:space="preserve">The wumpus sees you and charges, gobbling you up before you have a chance to run away</value>
@@ -124,5 +124,26 @@
   </data>
   <data name="KillWumpus">
     <value xml:space="preserve">You hear a scream as the arrow strikes the wumpus, killing it</value>
+  </data>
+  <data name="HearBreeze">
+    <value xml:space="preserve">You hear a breeze</value>
+  </data>
+  <data name="MoveToBottomlessPit">
+    <value xml:space="preserve">You fall down a bottomless pit.</value>
+  </data>
+  <data name="ArrowOnGround">
+    <value xml:space="preserve">You see an arrow lying on the ground</value>
+  </data>
+  <data name="GoldGlimmer">
+    <value xml:space="preserve">You see a glimmer</value>
+  </data>
+  <data name="NoSuchAction">
+    <value xml:space="preserve">No such action</value>
+  </data>
+  <data name="BatJacked">
+    <value xml:space="preserve">Bats pick you up and whisk you away to another location</value>
+  </data>
+  <data name="BatRustling">
+    <value xml:space="preserve">You hear rustling</value>
   </data>
 </root>

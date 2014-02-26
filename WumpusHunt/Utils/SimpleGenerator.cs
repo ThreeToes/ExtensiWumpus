@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using WumpusHunt.Models;
 using WumpusHunt.Models.Map;
+using WumpusHunt.Models.Map.Factories;
+using WumpusHunt.Utils.Hooks;
 
 namespace WumpusHunt.Utils
 {
     class SimpleGenerator : IMapGenerator
     {
+        public void AddFactory(ICellFactory factory)
+        {
+            throw new NotImplementedException();
+        }
+
         public IMapCell GenerateMap()
         {
             var left = new EmptyMapCell();
@@ -19,6 +26,11 @@ namespace WumpusHunt.Utils
         }
 
         public IMapCell GenerateMapFromFile(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddMapGeneratedHook(IMapGeneratedHook hook)
         {
             throw new NotImplementedException();
         }

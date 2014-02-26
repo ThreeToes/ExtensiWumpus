@@ -189,6 +189,26 @@ namespace WumpusHunt.Utils
             return ok;
         }
 
+        public static IEnumerable<IMapCell> GetAllCells(this IMapCell cell)
+        {
+            var queue = new Queue<IMapCell>();
+            var found = new List<IMapCell>();
+            queue.Enqueue(cell);
+            while(queue.Count > 0)
+            {
+                var check = queue.Dequeue();
+                found.Add(check);
+                foreach (var connectedCell in check.GetConnectedCells())
+                {
+                    if(!found.Contains(connectedCell))
+                    {
+                        queue.Enqueue(connectedCell);
+                    }
+                }
+            }
+            return found;
+        } 
+
         public static bool CheckSymmetry(this IMapCell map)
         {
             var toCheck = new Queue<IMapCell>();
@@ -218,12 +238,12 @@ namespace WumpusHunt.Utils
 
         public static ActionResult FindWumpus(this IMapCell currentCell)
         {
-            var fringe = new Stack<Tuple<IMapCell, Queue<Direction>>>();
+            var fringe = new Queue<Tuple<IMapCell, Queue<Direction>>>();
             var check = new List<IMapCell>();
-            fringe.Push(new Tuple<IMapCell, Queue<Direction>>(currentCell, new Queue<Direction>()));
+            fringe.Enqueue(new Tuple<IMapCell, Queue<Direction>>(currentCell, new Queue<Direction>()));
             while (fringe.Count > 0)
             {
-                var current = fringe.Pop();
+                var current = fringe.Dequeue();
                 if (check.Contains(current.Item1))
                 {
                     continue;
@@ -247,7 +267,8 @@ namespace WumpusHunt.Utils
                                };
                 }
                 check.Add(current.Item1);
-                if(current.Item1 is WallMapCell || current.Item1.MoveTo().GameOver)
+                var actionResult = current.Item1.MoveTo();
+                if(current.Item1 is WallMapCell || actionResult.GameOver || actionResult.Special)
                 {
                     continue;
                 }
@@ -256,7 +277,7 @@ namespace WumpusHunt.Utils
                     var queue = new Queue<Direction>(current.Item2);
                     queue.Enqueue(direction);
                     var cellInDirection = current.Item1.GetCellInDirection(direction);
-                    fringe.Push(new Tuple<IMapCell, Queue<Direction>>(cellInDirection, queue));
+                    fringe.Enqueue(new Tuple<IMapCell, Queue<Direction>>(cellInDirection, queue));
                 }
             }
             return new ActionResult()

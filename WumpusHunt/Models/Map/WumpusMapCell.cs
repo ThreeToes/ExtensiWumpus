@@ -24,6 +24,11 @@ namespace WumpusHunt.Models.Map
                        };
         }
 
+        public ActionResult DoSpecial(GameState state)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public ActionResult DoSpecial(string action, IAgent agent)
         {
             return new ActionResult()

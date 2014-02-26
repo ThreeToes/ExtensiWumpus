@@ -18,13 +18,13 @@ namespace WumpusHunt.Models.Map
         /// </summary>
         /// <returns>An action result</returns>
         ActionResult MoveTo();
+
         /// <summary>
         /// Do a special action
         /// </summary>
-        /// <param name="action">Action name</param>
-        /// <param name="agent">Agent to carry out action</param>
+        /// <param name="state"> </param>
         /// <returns>An action result</returns>
-        ActionResult DoSpecial(string action, IAgent agent);
+        ActionResult DoSpecial(GameState state);
         /// <summary>
         /// Determine if firing an arrow at this square will hit it
         /// </summary>

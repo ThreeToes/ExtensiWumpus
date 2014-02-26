@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Actions\FindWumpusAction.cs" />
     <Compile Include="Actions\FireAction.cs" />
+    <Compile Include="Actions\GrabAction.cs" />
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="Actions\TurnLeftAction.cs" />
@@ -52,13 +53,20 @@
     <Compile Include="Models\Agent\IAgent.cs" />
     <Compile Include="Models\Agent\SimpleAgent.cs" />
     <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameState.cs" />
     <Compile Include="Models\Items\ArrowItem.cs" />
+    <Compile Include="Models\Items\GoldItem.cs" />
     <Compile Include="Models\Items\IItem.cs" />
+    <Compile Include="Models\Map\BatMapCell.cs" />
+    <Compile Include="Models\Map\BottomlessPitMapCell.cs" />
     <Compile Include="Models\Map\EmptyMapCell.cs" />
+    <Compile Include="Models\Map\Factories\BatCellFactory.cs" />
     <Compile Include="Models\Map\Factories\EmptyCellFactory.cs" />
     <Compile Include="Models\Map\Factories\ICellFactory.cs" />
+    <Compile Include="Models\Map\Factories\PitCellFactory.cs" />
     <Compile Include="Models\Map\Factories\WumpusFactory.cs" />
+    <Compile Include="Models\Map\IItemHolder.cs" />
     <Compile Include="Models\Map\IMapCell.cs" />
     <Compile Include="Models\Map\WallMapCell.cs" />
     <Compile Include="Models\Map\WumpusMapCell.cs" />
@@ -69,6 +77,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Hooks\GoldAddHook.cs" />
+    <Compile Include="Utils\Hooks\IMapGeneratedHook.cs" />
     <Compile Include="Utils\IMapGenerator.cs" />
     <Compile Include="Utils\MapCellUtils.cs" />
     <Compile Include="Utils\RandomGenerator.cs" />
@@ -78,6 +88,7 @@
     <EmbeddedResource Include="Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

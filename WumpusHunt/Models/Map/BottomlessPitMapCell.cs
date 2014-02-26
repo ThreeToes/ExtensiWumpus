@@ -1,29 +1,31 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using WumpusHunt.Models.Agent;
 
 namespace WumpusHunt.Models.Map
 {
-    class WallMapCell : IMapCell
+    class BottomlessPitMapCell : IMapCell
     {
         public IMapCell North { get; set; }
         public IMapCell East { get; set; }
         public IMapCell South { get; set; }
         public IMapCell West { get; set; }
-        
         public string Probe()
         {
-            return string.Empty;
+            return Strings.HearBreeze;
         }
 
         public ActionResult MoveTo()
         {
             return new ActionResult()
                        {
-                           Special = false,
-                           MoveSuccessful = false,
-                           Message = Strings.HitWall,
-                           GameOver = false,
-                           ScoreValue = 0
+                           GameOver = true,
+                           Message = Strings.MoveToBottomlessPit,
+                           MoveSuccessful = true,
+                           ScoreValue = 0,
+                           Special = false
                        };
         }
 
@@ -34,21 +36,14 @@ namespace WumpusHunt.Models.Map
 
         public ActionResult DoSpecial(string action, IAgent agent)
         {
-            return new ActionResult()
-                       {
-                           GameOver = false,
-                           Message = string.Empty,
-                           MoveSuccessful = false,
-                           ScoreValue = 0,
-                           Special = false
-                       };
+            throw new NotImplementedException();
         }
 
         public bool HitWumpusWithArrow()
         {
-            throw new NotImplementedException();
+            return false;
         }
-
+        
         public string ProbeCurrent()
         {
             return string.Empty;

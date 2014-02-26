@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using WumpusHunt.Models.Items;
 
 namespace WumpusHunt.Models.Agent
@@ -6,12 +8,14 @@ namespace WumpusHunt.Models.Agent
     class SimpleAgent : IAgent
     {
         private readonly List<IItem> _inventory;
-
+        private int _score;
         public SimpleAgent()
         {
+            _score = 0;
             _inventory = new List<IItem>();
         }
 
+        public int Score { get { return _score + Inventory.Sum(x => x.Score); } }
         public Direction CurrentDirection { get; set; }
         public void GiveItem(IItem item)
         {
@@ -26,6 +30,21 @@ namespace WumpusHunt.Models.Agent
         public IEnumerable<IItem> Inventory
         {
             get { return _inventory; }
+        }
+
+        public string GetAction()
+        {
+            var action = string.Empty;
+            while (string.IsNullOrEmpty(action))
+            {
+                action = Console.ReadLine();
+            }
+            return action;
+        }
+
+        public void AddScore(int toAdd)
+        {
+            _score += toAdd;
         }
     }
 }

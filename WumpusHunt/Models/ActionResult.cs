@@ -7,7 +7,6 @@ namespace WumpusHunt.Models
 {
     public class ActionResult
     {
-        public bool Killed { get; set; }
         public bool MoveSuccessful { get; set; }
         public bool Special { get; set; }
         public string Message { get; set; }

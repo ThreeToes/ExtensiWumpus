@@ -70,6 +70,33 @@ namespace WumpusHunt {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You see an arrow lying on the ground.
+        /// </summary>
+        internal static string ArrowOnGround {
+            get {
+                return ResourceManager.GetString("ArrowOnGround", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bats pick you up and whisk you away to another location.
+        /// </summary>
+        internal static string BatJacked {
+            get {
+                return ResourceManager.GetString("BatJacked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You hear rustling.
+        /// </summary>
+        internal static string BatRustling {
+            get {
+                return ResourceManager.GetString("BatRustling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter the action to take.
         /// </summary>
         internal static string EnterAction {
@@ -88,11 +115,29 @@ namespace WumpusHunt {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You hear growling.
+        ///   Looks up a localized string similar to You see a glimmer.
+        /// </summary>
+        internal static string GoldGlimmer {
+            get {
+                return ResourceManager.GetString("GoldGlimmer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You smell a wumpus.
         /// </summary>
         internal static string Growling {
             get {
                 return ResourceManager.GetString("Growling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You hear a breeze.
+        /// </summary>
+        internal static string HearBreeze {
+            get {
+                return ResourceManager.GetString("HearBreeze", resourceCulture);
             }
         }
         
@@ -115,11 +160,29 @@ namespace WumpusHunt {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You fall down a bottomless pit..
+        /// </summary>
+        internal static string MoveToBottomlessPit {
+            get {
+                return ResourceManager.GetString("MoveToBottomlessPit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have no arrows to fire.
         /// </summary>
         internal static string NoArrows {
             get {
                 return ResourceManager.GetString("NoArrows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No such action.
+        /// </summary>
+        internal static string NoSuchAction {
+            get {
+                return ResourceManager.GetString("NoSuchAction", resourceCulture);
             }
         }
         

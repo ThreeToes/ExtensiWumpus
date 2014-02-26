@@ -6,17 +6,20 @@ using System.Text;
 using WumpusHunt.Models;
 using WumpusHunt.Models.Map;
 using WumpusHunt.Models.Map.Factories;
+using WumpusHunt.Utils.Hooks;
 
 namespace WumpusHunt.Utils
 {
     class RandomGenerator : IMapGenerator
     {
         private readonly Random _random;
-        private readonly List<ICellFactory> _factories;
+        private List<ICellFactory> _factories;
+        private List<IMapGeneratedHook> _genHooks;
         private const int DEFAULT_MAP_SIZE = 20;
 
         public RandomGenerator(IEnumerable<ICellFactory> cellFactories)
         {
+            _genHooks = new List<IMapGeneratedHook>();
             _random = new Random();
             _factories = new List<ICellFactory>();
             foreach (var cellFactory in cellFactories)
@@ -25,6 +28,15 @@ namespace WumpusHunt.Utils
                 {
                     _factories.Add(cellFactory);
                 }
+            }
+            _factories = _factories.OrderBy(x => Guid.NewGuid()).ToList();
+        }
+
+        public void AddFactory(ICellFactory factory)
+        {
+            for(var i = 0; i < factory.Weighting; i++)
+            {
+                _factories.Add(factory);
             }
             _factories = _factories.OrderBy(x => Guid.NewGuid()).ToList();
         }
@@ -42,7 +54,16 @@ namespace WumpusHunt.Utils
             {
                 generateMap = _GenerateMap(mapSize);
             }
+            RunPostGenHooks(generateMap);
             return generateMap;
+        }
+
+        private void RunPostGenHooks(IMapCell map)
+        {
+            foreach (var mapGeneratedHook in _genHooks)
+            {
+                mapGeneratedHook.MapGenerated(map);
+            }
         }
 
         private IMapCell _GenerateMap(int mapSize)
@@ -128,6 +149,11 @@ namespace WumpusHunt.Utils
         public IMapCell GenerateMapFromFile(string path)
         {
             throw new NotImplementedException();
+        }
+
+        public void AddMapGeneratedHook(IMapGeneratedHook hook)
+        {
+            _genHooks.Add(hook);
         }
     }
 }
