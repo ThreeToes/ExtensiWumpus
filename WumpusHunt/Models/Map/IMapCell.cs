@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using WumpusHunt.Models.Agent;
 
-namespace WumpusHunt.Models
+namespace WumpusHunt.Models.Map
 {
-    interface IMapCell
+    public interface IMapCell
     {
         IMapCell North { get; set; }
         IMapCell East { get; set; }
@@ -33,5 +30,10 @@ namespace WumpusHunt.Models
         /// </summary>
         /// <returns>Whether the wumpus has been hit</returns>
         bool HitWumpusWithArrow();
+        /// <summary>
+        /// Probe as current cell
+        /// </summary>
+        /// <returns>Probe message</returns>
+        string ProbeCurrent();
     }
 }

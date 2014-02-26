@@ -61,6 +61,15 @@ namespace WumpusHunt {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your arrow goes hurtling down the corridor. You hear it hit the cave floor.
+        /// </summary>
+        internal static string ArrowMiss {
+            get {
+                return ResourceManager.GetString("ArrowMiss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter the action to take.
         /// </summary>
         internal static string EnterAction {
@@ -93,6 +102,24 @@ namespace WumpusHunt {
         internal static string HitWall {
             get {
                 return ResourceManager.GetString("HitWall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You hear a scream as the arrow strikes the wumpus, killing it.
+        /// </summary>
+        internal static string KillWumpus {
+            get {
+                return ResourceManager.GetString("KillWumpus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have no arrows to fire.
+        /// </summary>
+        internal static string NoArrows {
+            get {
+                return ResourceManager.GetString("NoArrows", resourceCulture);
             }
         }
         

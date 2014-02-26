@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WumpusHunt.Models
 {
-    enum Direction
+    public enum Direction
     {
         North, East, South, West
     }

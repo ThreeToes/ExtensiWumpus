@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using WumpusHunt.Models.Agent;
 
-namespace WumpusHunt.Models
+namespace WumpusHunt.Models.Map
 {
-    class EmptyMapCell : IMapCell
+    class WumpusMapCell : IMapCell
     {
         public IMapCell North { get; set; }
         public IMapCell East { get; set; }
         public IMapCell South { get; set; }
         public IMapCell West { get; set; }
-
         public string Probe()
         {
-            return string.Empty;
+            return Strings.Growling;
         }
 
         public ActionResult MoveTo()
         {
             return new ActionResult()
                        {
-                           Killed = false,
-                           Special = false,
-                           Message = string.Empty,
                            MoveSuccessful = true,
-                           GameOver = false
+                           Message = Strings.WumpusDeath,
+                           Special = false,
+                           GameOver = true
                        };
         }
 
@@ -33,17 +28,21 @@ namespace WumpusHunt.Models
         {
             return new ActionResult()
                        {
-                           Killed = false,
-                           Special = false,
-                           Message = Strings.NothingHappened,
+                           Message = string.Empty,
                            MoveSuccessful = true,
-                           GameOver = false
+                           Special = false,
+                           GameOver = true
                        };
         }
 
         public bool HitWumpusWithArrow()
         {
-            return false;
+            return true;
+        }
+
+        public string ProbeCurrent()
+        {
+            return "The wumpus is staring at you angrily";
         }
     }
 }

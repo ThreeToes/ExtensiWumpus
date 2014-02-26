@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WumpusHunt.Models
 {
-    class ActionResult
+    public class ActionResult
     {
         public bool Killed { get; set; }
         public bool MoveSuccessful { get; set; }

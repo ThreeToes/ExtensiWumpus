@@ -1,6 +1,6 @@
-namespace WumpusHunt.Models
+namespace WumpusHunt.Models.Items
 {
-    internal interface IItem
+    public interface IItem
     {
         int Score { get; }
         string Name { get; }

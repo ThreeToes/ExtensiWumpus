@@ -116,4 +116,13 @@
   <data name="GameOver">
     <value xml:space="preserve">Game over</value>
   </data>
+  <data name="NoArrows">
+    <value xml:space="preserve">You have no arrows to fire</value>
+  </data>
+  <data name="ArrowMiss">
+    <value xml:space="preserve">Your arrow goes hurtling down the corridor. You hear it hit the cave floor</value>
+  </data>
+  <data name="KillWumpus">
+    <value xml:space="preserve">You hear a scream as the arrow strikes the wumpus, killing it</value>
+  </data>
 </root>

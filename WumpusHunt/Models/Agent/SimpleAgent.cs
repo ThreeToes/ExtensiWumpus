@@ -1,9 +1,7 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using WumpusHunt.Models.Items;
 
-namespace WumpusHunt.Models
+namespace WumpusHunt.Models.Agent
 {
     class SimpleAgent : IAgent
     {
