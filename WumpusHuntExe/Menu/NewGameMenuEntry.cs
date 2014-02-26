@@ -10,7 +10,7 @@ namespace WumpusHuntExe.Menu
     class NewGameMenuEntry : IMenuEntry
     {
         public string Title { get { return "New Game"; } }
-        public int Weight { get { return 0; } }
+        public int Weight { get { return int.MinValue; } }
         public void Execute(Game game)
         {
             game.Reinitialise();
