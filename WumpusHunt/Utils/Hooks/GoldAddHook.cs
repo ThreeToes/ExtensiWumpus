@@ -22,6 +22,7 @@ namespace WumpusHunt.Utils.Hooks
                 if(goldLeft <= 0)
                     break;
                 cell.AddItem(new GoldItem());
+                goldLeft--;
             }
         }
     }
