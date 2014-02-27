@@ -26,23 +26,29 @@ namespace WumpusHuntExe
                             };
             while(true)
             {
-                var weightedMenus = menus.OrderBy(x => x.Weight).ToList();
-                var menuEntryNum = 1;
-                foreach (var menuEntry in menus)
+                try
                 {
-                    Console.WriteLine("{0}) {1}", menuEntryNum, menuEntry.Title);
-                    menuEntryNum++;
-                }
-                var choice = Console.ReadLine();
-                int num;
-                if(int.TryParse(choice, out num))
-                {
-                    var finalChoice = num - 1;
-                    if(num <= 0 || num > weightedMenus.Count)
+                    var weightedMenus = menus.OrderBy(x => x.Weight).ToList();
+                    var menuEntryNum = 1;
+                    foreach (var menuEntry in menus)
                     {
-                        continue;
+                        Console.WriteLine("{0}) {1}", menuEntryNum, menuEntry.Title);
+                        menuEntryNum++;
                     }
-                    weightedMenus[finalChoice].Execute(game);
+                    var choice = Console.ReadLine();
+                    int num;
+                    if (int.TryParse(choice, out num))
+                    {
+                        var finalChoice = num - 1;
+                        if (num <= 0 || num > weightedMenus.Count)
+                        {
+                            continue;
+                        }
+                        weightedMenus[finalChoice].Execute(game);
+                    }
+                }catch(Exception e)
+                {
+                    Console.WriteLine();
                 }
             }
         }
