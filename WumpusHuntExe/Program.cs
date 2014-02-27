@@ -21,6 +21,7 @@ namespace WumpusHuntExe
             var menus = new List<IMenuEntry>()
                             {
                                 new NewGameMenuEntry(),
+                                new RunScriptMenuEntry(game),
                                 new QuitEntry()
                             };
             while(true)

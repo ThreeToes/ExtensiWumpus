@@ -68,8 +68,10 @@
     <Compile Include="Menu\IMenuEntry.cs" />
     <Compile Include="Menu\NewGameMenuEntry.cs" />
     <Compile Include="Menu\QuitEntry.cs" />
+    <Compile Include="Menu\RunScriptMenuEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripting\PythonEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WumpusHunt\WumpusHunt.csproj">
@@ -80,8 +82,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Scripting\" />
+    <Content Include="Scripting\PythonIncludes\wumpusHunt.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

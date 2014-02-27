@@ -4,9 +4,21 @@ namespace WumpusHunt.Models.Map
 {
     public interface IMapCell
     {
+        /// <summary>
+        /// Cell to the north
+        /// </summary>
         IMapCell North { get; set; }
+        /// <summary>
+        /// Cell to the east
+        /// </summary>
         IMapCell East { get; set; }
+        /// <summary>
+        /// Cell to the south
+        /// </summary>
         IMapCell South { get; set; }
+        /// <summary>
+        /// Cell to the west
+        /// </summary>
         IMapCell West { get; set; }
         /// <summary>
         /// Probe the square
