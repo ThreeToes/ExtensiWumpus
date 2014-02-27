@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2014, Stephen Gream.
+ * This file is part of the ExtensiWumpus software.
+ * For conditions of distribution and use, see the accompanying License file.
+ */
 namespace WumpusHunt.Models.Items
 {
     public interface IItem
